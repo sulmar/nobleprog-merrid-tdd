@@ -12,12 +12,12 @@ Do rozpoczęcia tego kursu potrzebujesz następujących rzeczy:
 ## Przygotowanie
 1. Sklonuj repozytorium Git
 ```
-git clone ...
+git clone https://github.com/sulmar/nobleprog-merrid-tdd
 ```
 2. Zbuduj
 ```
 cd src
-dotnet build
+dotnet test
 ```
 
 ## Zakres
