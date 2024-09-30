@@ -38,16 +38,22 @@ namespace TestApp.UnitTests
         }
 
         [TestMethod]
-        public void FormatAsBold_ContentIsNotEmpty_ShouldReturnsWithDoubleAsterix()
+        [DataRow("a")]
+        [DataRow("Lorem ipsum")]
+        public void FormatAsBold_ContentIsNotEmpty_ShouldReturnsWithDoubleAsterix(string content)
         {
             // Arrange
             MarkdownFormatter formatter = new MarkdownFormatter();
           
             // Act
-            string result = formatter.FormatAsBold(NotEmpty);
+            string result = formatter.FormatAsBold(content);
 
             // Assert
-            Assert.AreEqual("**a**", result);
+            Assert.IsTrue(result.StartsWith("**"), "Zaczyna się od **");
+            Assert.IsTrue(result.Contains(content));
+            Assert.IsTrue(result.EndsWith("&&"), "Konczy się na **");
         }
+
+
     }
 }
