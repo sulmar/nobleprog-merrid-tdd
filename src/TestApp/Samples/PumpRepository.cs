@@ -44,5 +44,22 @@ namespace TestApp.Samples
 
             return results;
         }
+
+        public List<Pump> GetPumpsByAreaByLinq(string area)
+        {
+            int? selectedTypeId = null;
+
+            var query = pumps
+                .Where(p => p.Area == area);
+
+            if (selectedTypeId.HasValue)
+            {
+                query = query.Where(p => p.TypeId == selectedTypeId);
+            }
+
+            var results = query.ToList();
+
+            return results;
+        }
     }
 }

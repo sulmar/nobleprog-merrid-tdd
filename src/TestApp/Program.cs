@@ -14,7 +14,7 @@ namespace TestApp
             PumpRepository repository = new PumpRepository();
 
             // Act
-            List<Pump> pumps = repository.GetPumpsByArea("PLOAD");
+            List<Pump> pumps = repository.GetPumpsByAreaByLinq("PLOAD");
 
 
             foreach (Pump pump in pumps)
