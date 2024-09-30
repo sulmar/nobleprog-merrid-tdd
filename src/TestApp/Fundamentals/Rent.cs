@@ -6,19 +6,7 @@ namespace TestApp
     {
         public User Rentee { get; set; }
 
-        public bool CanReturn(User user)
-        {
-            if (user == null)
-                throw new ArgumentNullException();
-
-            if (user.IsAdmin)
-                return true;
-
-            if (Rentee == user)
-                return true;
-
-            return false;
-        }
+        public bool CanReturn(User user) => user == null ? throw new ArgumentNullException() : Rentee == user || user.IsAdmin;
 
     }
 
