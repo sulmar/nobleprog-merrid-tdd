@@ -61,5 +61,17 @@ namespace TestApp.Samples
 
             return results;
         }
+
+        public void AggrateTest()
+        {
+            var query = pumps.GroupBy(p => p.Area)
+                .Select(g => new { Area = g.Key, Quantity = g.Count() })
+                .ToList();
+        }
+
+        public void GroupBy(Pump p)
+        {
+
+        }
     }
 }

@@ -21,6 +21,8 @@ namespace TestApp
             {
                 Console.WriteLine($"Name: {pump.Name} Area: {pump.Area} TypeId: {pump.TypeId}");
             }
+
+            repository.AggrateTest();
         }
     }
 }
