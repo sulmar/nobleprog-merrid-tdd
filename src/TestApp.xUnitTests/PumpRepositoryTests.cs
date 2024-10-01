@@ -19,7 +19,7 @@ namespace TestApp.xUnitTests
             List<Pump> result = repository.GetPumpsByArea("PLOAD");
 
             // Assert
-            throw new NotImplementedException();
+            Assert.NotEmpty(result);
         }
     }
 }
