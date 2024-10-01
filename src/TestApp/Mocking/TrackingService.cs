@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text.Json;
+using static TestApp.Mocking.TrackingService;
 
 namespace TestApp.Mocking
 {
@@ -17,20 +18,7 @@ namespace TestApp.Mocking
         }
     }
 
-    public class FakeFileReader : IFileReader
-    {
-        public string Get(string path)
-        {
-            string json = @"{
-                  ""location"": {
-                    ""latitude"": 40.712776,
-                    ""longitude"": -74.005974
-                  }
-                }";
 
-            return json;
-        }
-    }
 
     public class TrackingService
     {
@@ -50,31 +38,40 @@ namespace TestApp.Mocking
         {
             string json = fileReader.Get("tracking.txt");
 
-            Location location = JsonSerializer.Deserialize<Location>(json);
+            try
+            {
+                Location location = JsonSerializer.Deserialize<Location>(json);
 
-            if (location == null)
-                throw new ApplicationException("Error parsing the location");
+                if (location == null)
+                    throw new ApplicationException("Error parsing the location");
 
-            return location;
+                return location;
+            }
+            catch (JsonException e)
+            {
+                throw new ApplicationException();
+            }
+
+
+
         }
-    }
 
 
-    public class Location
-    {
-        public Location(double latitude, double longitude)
+        public class Location
         {
-            Latitude = latitude;
-            Longitude = longitude;
+            public Location(double latitude, double longitude)
+            {
+                Latitude = latitude;
+                Longitude = longitude;
+            }
+
+            public double Latitude { get; set; }
+            public double Longitude { get; set; }
+
+            public override string ToString()
+            {
+                return $"{Latitude} {Longitude}";
+            }
         }
-
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
-
-        public override string ToString()
-        {
-            return $"{Latitude} {Longitude}";
-        }
-
     }
 }
