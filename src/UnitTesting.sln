@@ -5,9 +5,11 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApp", "TestApp\TestApp.csproj", "{CC9E6DA2-610E-4952-8C13-C4FD1E14FD71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp.UnitTests", "TestApp.UnitTests\TestApp.UnitTests.csproj", "{046BCEA0-AC60-4013-9E10-1B8FCA290C06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApp.UnitTests", "TestApp.UnitTests\TestApp.UnitTests.csproj", "{046BCEA0-AC60-4013-9E10-1B8FCA290C06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp.xUnitTests", "TestApp.xUnitTests\TestApp.xUnitTests.csproj", "{B6B4F4FB-45AC-41DD-9648-F6CF96D242A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApp.xUnitTests", "TestApp.xUnitTests\TestApp.xUnitTests.csproj", "{B6B4F4FB-45AC-41DD-9648-F6CF96D242A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp.IntegrationTests", "TestApp.IntegrationTests\TestApp.IntegrationTests.csproj", "{8CDAEF59-E318-4A3E-A6B6-95B111C4C287}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{B6B4F4FB-45AC-41DD-9648-F6CF96D242A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6B4F4FB-45AC-41DD-9648-F6CF96D242A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6B4F4FB-45AC-41DD-9648-F6CF96D242A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CDAEF59-E318-4A3E-A6B6-95B111C4C287}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CDAEF59-E318-4A3E-A6B6-95B111C4C287}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CDAEF59-E318-4A3E-A6B6-95B111C4C287}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CDAEF59-E318-4A3E-A6B6-95B111C4C287}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
