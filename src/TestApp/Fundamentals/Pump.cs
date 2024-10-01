@@ -3,10 +3,18 @@ namespace TestApp.Fundamentals;
 public class Pump
 {
     public bool IsRunning { get; private set; }
-    
+
     // Pole określające, czy pompa jest uziemiona
     private bool isGrounded;
-    
+
+    public bool IsGrounded
+    {
+        get
+        {
+            return isGrounded;
+        }
+    }
+
     // Prędkość przepływu paliwa (litry na sekundę)
     private double flowRate;
 
@@ -17,6 +25,7 @@ public class Pump
         this.flowRate = flowRate;
     }
 
+
     // Symulacja uziemienia pompy
     public void Ground()
     {
@@ -25,14 +34,18 @@ public class Pump
 
     public void Start()
     {
+
+        if (!IsGrounded)
+            throw new System.InvalidOperationException();
+
         if (isGrounded)
-            IsRunning = false;
+            IsRunning = true;
     }
 
     public void Stop()
     {
         if (IsRunning)
-            IsRunning = true;
+            IsRunning = false;
     }
 
     // Metoda do obliczania czasu tankowania (w sekundach)
