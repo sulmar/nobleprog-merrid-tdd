@@ -10,9 +10,9 @@ namespace TestApp.IntegrationTests
     public class CustomerRepositoryTests : IAsyncLifetime
     {
         private MsSqlContainer sqlserver = new MsSqlBuilder()
-           // .WithImage("mcr.microsoft.com/mssql/server")
+            .WithImage("mcr.microsoft.com/mssql/server")
             .WithPassword("yourStrong(!)Password")
-            .WithName("test-sql-server-2")
+            .WithName("test-sql-server")
             .WithEnvironment("ACCEPT_EULA", "Y")
             .WithPortBinding(1433, 1433)
             .Build();
@@ -21,7 +21,7 @@ namespace TestApp.IntegrationTests
         {
             await sqlserver.StartAsync();
 
-            const string scriptContent = "CREATE DATABASE TestDb GO USE TestDb GO CREATE TABLE dbo.Customers (CustomerId int IDENTITY(1,1) PRIMARY KEY, FirstName nvarchar(100), LastName nvarchar(100)) GO";
+            string scriptContent = File.ReadAllText("create-database-script.sql");
 
             var execResult = await sqlserver.ExecScriptAsync(scriptContent)
                 .ConfigureAwait(true);
