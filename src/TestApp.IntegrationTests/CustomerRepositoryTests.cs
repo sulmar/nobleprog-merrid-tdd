@@ -6,7 +6,7 @@ using Testcontainers.MsSql;
 
 namespace TestApp.IntegrationTests
 {
-
+    // Przyk³ad testów integracyjnych z u¿yciem Docker za pomoc¹ biblioteki Testcontainers
     public class CustomerRepositoryTests : IAsyncLifetime
     {
         private MsSqlContainer sqlserver = new MsSqlBuilder()
