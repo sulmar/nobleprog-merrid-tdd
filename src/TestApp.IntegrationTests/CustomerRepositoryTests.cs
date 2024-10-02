@@ -54,7 +54,12 @@ namespace TestApp.IntegrationTests
             // Arrange
             var connectionstring = sqlserver.GetConnectionString();
 
-            SqlConnection connection = new SqlConnection(connectionstring);
+            var connectionStringBuilder = new SqlConnectionStringBuilder(connectionstring)
+            {
+                InitialCatalog = "TestDb"
+            };
+
+            SqlConnection connection = new SqlConnection(connectionStringBuilder.ConnectionString);
             DbCustomerRepository repository = new DbCustomerRepository(connection);
 
             // Act
