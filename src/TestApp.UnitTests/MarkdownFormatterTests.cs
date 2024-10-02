@@ -51,7 +51,7 @@ namespace TestApp.UnitTests
             // Assert
             Assert.IsTrue(result.StartsWith("**"), "Zaczyna się od **");
             Assert.IsTrue(result.Contains(content));
-            Assert.IsTrue(result.EndsWith("&&"), "Konczy się na **");
+            Assert.IsTrue(result.EndsWith("**"), "Konczy się na **");
         }
 
 
